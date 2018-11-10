@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  <script src='js/model/student.js'></script>
+</head>
+
+<body>
+  <br>
+  <div class="shadow-lg card form" align="center" border="1" style="height:60px;width:800px;margin:auto;">
+    <div class="card-body">
+      <br>
+      <label class="col-form-label">Last Name:</label>
+      <input type="text" class="form-control-plaintext" id="formInput">
+      <input type="button" id="buttonId" onclick="search()" value="Search">
+    </div>
+  </div>
+
+  <script id="stdTemplate" type="text/x-handlebars-template">
+    <br>
+          <label>Students found:</label><br>
+          {{#if students}}
+          <ul id="std">
+          {{#students}}
+            <p id="students"><a href="#" id="name" onclick="init(event);">{{.}}</a></p>
+          {{/students}}
+        </ul>
+        {{else}}
+      <p>No Student Found.</p>
+    {{/if}}
+      </script>
+
+      <script id="stdTemplate2" type="text/x-handlebars-template">
+        <br>
+        <label id="grade"></label>
+            <br>
+            <table border="1" align="center">
+              <tr>
+              <th>Course</th>
+    		  <th>GPA </th>
+              </tr>
+
+              {{#courses}}
+    			<tr>
+              <td id="courses">{{course}}</td>
+    		  <td id="gpa">{{gpa}}</td>
+    			</tr>
+              {{/courses}}
+
+          </table>
+          <br>
+          </script>
+
+
+              <br>
+              </script>
+  <script src='js/controller/search.js'></script>
+
+  <div class="card container2 form shadow" align="center" border="1" style="height:auto;width:800px;margin:auto;">
+    <div class="section1">
+      <div id="list"></div>
+    </div>
+    <div class="section2">
+      <div>
+        <div id="tbl"></div>
+        <div id="gp"></div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
